@@ -1,5 +1,5 @@
 import React from 'react'
-import { firstName } from './App';
+import { firstName, lastName } from './App';
 
 
 const ComC = () => {
@@ -7,7 +7,12 @@ const ComC = () => {
 
         <>
             <firstName.Consumer>{(fname) => {
-                return <h1>My name is {fname}</h1>;
+                return (
+                    <lastName.Consumer>{(lname) => {
+                        return <h1>My name is {fname} {lname}</h1>;
+                    }}
+                    </lastName.Consumer>
+                )
             }}</firstName.Consumer>
         </>
     )
